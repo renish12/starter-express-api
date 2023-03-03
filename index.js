@@ -1,18 +1,5 @@
-// const express = require('express')
-// const bodyParser = require("body-parser");
-// const mongoose = require("mongoose");
-// const graphqlHttp = require("express-graphql");
-
-// const app = express()
-// app.all('/', (req, res) => {
-//     console.log("Just got a request!")
-//     res.send('Yo!')
-// })
-// app.listen(process.env.PORT || 3000)
-
 const express = require("express");
 const express_graphql = require("express-graphql");
-const { buildSchema } = require("graphql");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const graphQlSchema = require("./graphql/schema/index");
@@ -21,6 +8,8 @@ const isAuth = require("./middleware/is-auth");
 
 const app = express();
 app.use(bodyParser.json());
+
+app.use(isAuth);
 
 app.use(
   "/graphql",

@@ -4,7 +4,6 @@ const User = require("../../models/user");
 const { transformEvent } = require("./merge");
 
 module.exports = {
-
   events: async () => {
     try {
       console.log(21);
